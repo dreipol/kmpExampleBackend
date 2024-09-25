@@ -6,4 +6,4 @@ class Content(models.Model):
     date_added = models.DateTimeField(auto_now=True, verbose_name="Date added")
 
     class Meta:
-        ordering = ("-date_added",)
+        ordering = ("date_added",)
