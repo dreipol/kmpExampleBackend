@@ -16,3 +16,10 @@ class ContentSchema(ModelSchema):
 @router.get("", response=List[ContentSchema])
 def list_all(request):
     return Content.objects.all()
+
+
+@router.post("", response={201: ContentSchema})
+def create(request):
+    new_object = Content(content=request.body.decode("utf-8"))
+    new_object.save()
+    return 201, new_object
